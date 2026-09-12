@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-base-700/60;
+  }
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-base-950 text-slate-200 font-body antialiased;
+    background-image:
+      radial-gradient(ellipse 1200px 600px at 20% -10%, rgba(94,234,212,0.07), transparent 60%),
+      radial-gradient(ellipse 800px 500px at 100% 0%, rgba(94,234,212,0.04), transparent 60%);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-white tracking-tight;
+  }
+  ::selection {
+    @apply bg-frost-500/30 text-white;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-frost-400/70 ring-offset-2 ring-offset-base-950;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-base-850/70 backdrop-blur-xl border border-white/[0.06] shadow-card rounded-2xl;
+  }
+  .glass-panel-hover {
+    @apply transition-all duration-300 hover:border-frost-500/25 hover:shadow-glow;
+  }
+  .stat-value {
+    @apply font-display text-3xl font-semibold text-white tabular-nums;
+  }
+  .label-eyebrow {
+    @apply text-[11px] font-medium tracking-wide text-slate-400;
+  }
+  .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+  .scrollbar-thin::-webkit-scrollbar-track { background: transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { background: #28334A; border-radius: 8px; }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #3C4A66; }
+}
+
+.leaflet-container {
+  background: #0A0E16 !important;
+  font-family: 'Inter', sans-serif;
+}
+.leaflet-popup-content-wrapper {
+  background: #111827;
+  color: #e2e8f0;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.leaflet-popup-tip {
+  background: #111827;
+}
+.leaflet-control-zoom a {
+  background: #111827 !important;
+  color: #5EEAD4 !important;
+  border-color: rgba(255,255,255,0.08) !important;
+}

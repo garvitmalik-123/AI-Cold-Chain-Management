@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: coldchain-backend
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/coldchain_db
+
+app:
+  jwt:
+    secret: "ThisIsADemoSecretKeyForColdChainJWTAuthDoNotUseInProdChangeMe123456"
+    expiration-ms: 86400000
+  cors:
+    allowed-origins: http://localhost:5173,http://localhost:5174
+  seed:
+    enabled: true
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui/index.html
+    tags-sorter: alpha
+    operations-sorter: method
+  api-docs:
+    path: /v3/api-docs
+
+logging:
+  level:
+    com.coldchain: INFO
