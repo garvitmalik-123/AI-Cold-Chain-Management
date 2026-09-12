@@ -1,28 +1,137 @@
-# ColdChain AI — Full Stack
+# ❄️ AI Cold Chain Management
 
-AI-powered hyper-local cold chain management & perishable logistics
-tracking system.
+### AI-Powered Hyper-Local Perishable Logistics & Cold Chain Tracking System
 
+> **Track → Predict → Recommend → Reduce Wastage**
+
+AI Cold Chain Management is a full-stack logistics platform designed to monitor perishable shipments, analyze environmental conditions, predict spoilage risk, and recommend nearby suitable facilities when intervention is required.
+
+---
+
+## ✨ Features
+
+* 🚚 **Shipment Tracking** — Monitor shipment status, location and ETA
+* 🌡️ **Environment Monitoring** — Track simulated temperature & humidity data
+* 🤖 **Spoilage Risk Prediction** — Identify LOW, MEDIUM, HIGH and CRITICAL risk
+* 📍 **Hyper-Local Recommendations** — Find nearby suitable cold storage, mandis and processing centres
+* 🗺️ **Location Tracking** — View shipment movement and facility locations
+* 🚨 **Smart Alerts** — Get alerts for high temperature, delays and spoilage risks
+* 📊 **Analytics Dashboard** — Shipment, risk and facility statistics
+* 🔐 **JWT Authentication** — Secure role-based access
+* 📚 **Swagger Documentation** — Test and explore APIs directly
+
+---
+
+## 🧠 How It Works
+
+```text
+┌──────────────┐
+│   Shipment   │
+└──────┬───────┘
+       ↓
+┌──────────────────┐
+│ Temp / Humidity  │
+│ Location / ETA   │
+└────────┬─────────┘
+         ↓
+┌──────────────────┐
+│ Spoilage Risk    │
+│ Analysis Engine  │
+└────────┬─────────┘
+         ↓
+   ┌─────┴─────┐
+   ↓           ↓
+ Risk       Hyper-Local
+Analysis    Recommendation
+   ↓           ↓
+   └─────┬─────┘
+         ↓
+┌──────────────────┐
+│ Dashboard / Map  │
+└──────────────────┘
 ```
-.
-├── backend/    Spring Boot 3.3.4 API (Java, MongoDB, JWT auth) — port 8080
-└── frontend/   React + Vite dashboard (Tailwind, Leaflet, Recharts) — port 5173
+
+> **Current version uses simulated sensor data through REST APIs. Real IoT/IIoT integration can be added later.**
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+
+* Java 21
+* Spring Boot
+* Spring Security
+* JWT
+* MongoDB
+* Spring Data MongoDB
+* Lombok
+* SpringDoc OpenAPI
+
+### Frontend
+
+* React
+* Vite
+* JavaScript
+* Tailwind CSS
+* Axios
+* React Router
+* Recharts
+* Leaflet / OpenStreetMap
+
+---
+
+## 👥 User Roles
+
+| Role                | Access                         |
+| ------------------- | ------------------------------ |
+| 👑 Admin            | System & facility management   |
+| 🚚 Transporter      | Shipment management & tracking |
+| 🏭 Facility Manager | Facility & capacity management |
+
+---
+
+## 📂 Project Structure
+
+```text
+AI-Cold-Chain-Management/
+│
+├── backend/
+│   └── Spring Boot Application
+│
+├── frontend/
+│   └── React + Vite Application
+│
+└── README.md
 ```
 
-## Run the backend
+---
 
-Requires Java 17+, Maven, and MongoDB running locally (`mongodb://localhost:27017/coldchain_db`).
+## 🚀 Getting Started
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/garvitmalik-123/AI-Cold-Chain-Management.git
+cd AI-Cold-Chain-Management
+```
+
+### 2. Backend
+
+Configure MongoDB and environment variables, then run:
 
 ```bash
 cd backend
 mvn spring-boot:run
 ```
 
-On first run it seeds three demo users and a handful of facilities/shipments
-(see `backend/README.md` / `src/main/java/com/coldchain/seed/DataSeeder.java`).
-Swagger UI is available at `http://localhost:8080/swagger-ui/index.html`.
+Backend:
 
-## Run the frontend
+```text
+http://localhost:8080
+```
+
+### 3. Frontend
 
 ```bash
 cd frontend
@@ -30,17 +139,74 @@ npm install
 npm run dev
 ```
 
-Open `http://localhost:5173` and sign in with a seeded account, e.g.
-`admin@coldchain.com` / `Admin@123`.
+Frontend:
 
-## How they connect
+```text
+http://localhost:5173
+```
 
-The frontend's Axios client (`frontend/src/api/client.js`) points at
-`http://localhost:8080/api/v1` and attaches the JWT returned by
-`/auth/login` / `/auth/register` as a Bearer token. CORS on the backend
-(`backend/src/main/resources/application.yml`) already allows
-`http://localhost:5173` and `5174`.
+---
 
-See `frontend/README.md` for a rundown of a couple of places where the
-frontend was adjusted to match the backend's real API shape (no `/auth/me`,
-environment history path, etc).
+## 📚 API Documentation
+
+Swagger UI:
+
+```text
+http://localhost:8080/swagger-ui/index.html
+```
+
+OpenAPI:
+
+```text
+http://localhost:8080/v3/api-docs
+```
+
+---
+
+## 🔌 Core API Modules
+
+```text
+/api/v1/auth
+/api/v1/shipments
+/api/v1/facilities
+/api/v1/dashboard
+/api/v1/alerts
+```
+
+Environment & risk APIs:
+
+```text
+/api/v1/shipments/{id}/environment
+/api/v1/shipments/{id}/risk
+/api/v1/shipments/{id}/recommendations
+```
+
+---
+
+## 🔮 Future Enhancements
+
+* 📡 Real IoT sensor integration
+* 🧠 ML-based spoilage prediction
+* 🚦 Real-time traffic-aware routing
+* 📱 Mobile application
+* ☁️ Cloud deployment
+* 📈 Advanced predictive analytics
+* 🔔 Real-time IoT alerts
+
+---
+
+## 🎯 Project Goal
+
+The goal is to reduce **food wastage and cold-chain inefficiencies** by combining shipment tracking, environmental monitoring, risk prediction and hyper-local logistics recommendations into one intelligent platform.
+
+---
+
+## 👨‍💻 Team
+
+Built with ❤️ using **Java, Spring Boot, React & MongoDB**.
+
+**GitHub:** [garvitmalik-123](https://github.com/garvitmalik-123)
+
+---
+
+### ⭐ If you find this project useful, consider giving it a star!
